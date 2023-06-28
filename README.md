@@ -13,6 +13,6 @@ Each configuration differs in what language servers are available along with rel
 
 To try any of these configurations on any machine with Nix:
 ```nix
-nix run github:garaiza-93/nixvim#default
+nix run github:garaiza-93/nvim-nixified#default
 ```
 
