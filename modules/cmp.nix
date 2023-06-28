@@ -1,5 +1,10 @@
 {
   plugins.luasnip.enable = true;
+  plugins.cmp_luasnip.enable = true;
+  plugins.cmp-nvim-lsp.enable = true;
+  plugins.cmp-buffer.enable = true;
+  plugins.cmp-path.enable = true;
+  plugins.cmp-cmdline.enable = true;
   plugins.nvim-cmp.enable = true;
   plugins.nvim-cmp.snippet.expand = "luasnip";
   extraConfigLua = ''
@@ -12,6 +17,7 @@
     local luasnip = require("luasnip")
     local cmp = require("cmp")
     require('luasnip.loaders.from_vscode').lazy_load()
+
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,noinsert",
@@ -53,11 +59,41 @@
           end
         end, { "i", "s" }),
       }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+      }),
       experimental = {
         ghost_text = {
           hl_group = "LspCodeLens",
         },
       },
+    })
+
+    cmp.setup.filetype('gitcommit', {
+      sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+      }, {
+        { name = 'buffer' },
+      })
+    })
+
+    -- Sources for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {}
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
+      })
     })
   '';
 }
