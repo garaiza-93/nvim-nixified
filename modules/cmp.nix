@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   plugins.luasnip.enable = true;
   plugins.cmp_luasnip.enable = true;
   plugins.cmp-nvim-lsp.enable = true;
@@ -7,6 +7,7 @@
   plugins.cmp-cmdline.enable = true;
   plugins.nvim-cmp.enable = true;
   plugins.nvim-cmp.snippet.expand = "luasnip";
+  extraPlugins = [ pkgs.vimPlugins.friendly-snippets ];
   extraConfigLua = ''
     local has_words_before = function()
       unpack = unpack or table.unpack
