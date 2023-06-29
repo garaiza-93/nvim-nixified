@@ -10,6 +10,7 @@
     let
       default-config = import ./configs/default-config.nix;
       rust-config = import ./configs/rust-config.nix;
+      nodets-config = import ./configs/nodets-config.nix;
     in inputs.flake-utils.lib.eachDefaultSystem (system:
       let
         nixvimLib = inputs.nixvim.lib.${system};
@@ -23,6 +24,10 @@
           inherit pkgs;
           module = rust-config;
         };
+        nvimnodets = nixvim'.makeNixvimWithModule {
+          inherit pkgs;
+          module = nodets-config;
+        };
       in {
         checks.default = nixvimLib.check.mkTestDerivationFromNvim {
           inherit nvim;
@@ -31,5 +36,6 @@
 
         packages.default = nvim;
         packages.rust-config = nvimrust;
+        packages.nodets-config = nvimnodets;
       });
 }
