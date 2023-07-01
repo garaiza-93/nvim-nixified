@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, helpers, ... }:
 let
   onAttach = ''
     if client.supports_method("textDocument/formatting") then
@@ -23,16 +23,18 @@ in {
     enable = true;
     onAttach.function = onAttach;
   };
-  extraConfigLua = ''
-    local null_ls = require("null-ls")
-    local sources = {
-      null_ls.builtins.formatting.prettier_d,
-      null_ls.builtins.formatting.eslint_d,
-      null_ls.builtins.diagnostics.eslint_d,
-      null_ls.builtins.code_actions.eslint_d
+  plugins.null-ls = {
+    enable = true;
+    extraOptions = {
+      sources = helpers.mkRaw ''
+        { require("null-ls").builtins.formatting.eslint_d,
+          require("null-ls").builtins.formatting.prettier_d_slim,
+          require("null-ls").builtins.code_actions.eslint_d,
+          require("null-ls").builtins.diagnostics.eslint_d
+        }
+      '';
     };
-    null_ls.setup({sources = sources})
-  '';
+  };
   extraPackages = with pkgs.nodePackages; [
     prettier
     eslint
