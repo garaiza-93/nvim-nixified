@@ -2,8 +2,15 @@
   description = "A nixvim configuration";
 
   inputs = {
-    nixvim.url = "github:pta2002/nixvim";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
+
+    nvim-lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, nixvim, flake-utils, ... }@inputs:
@@ -11,10 +18,20 @@
       default-config = import ./configs/default-config.nix;
       rust-config = import ./configs/rust-config.nix;
       nodets-config = import ./configs/nodets-config.nix;
+      dotnet-config = import ./configs/dotnet-config.nix;
+
+      overlay = final: prev: {
+        nvim-lspconfig =
+          prev.nvim-lspconfig.override { src = inputs.nvim-lspconfig.url; };
+      };
+
     in inputs.flake-utils.lib.eachDefaultSystem (system:
       let
         nixvimLib = inputs.nixvim.lib.${system};
-        pkgs = import inputs.nixpkgs { inherit system; };
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [ overlay ];
+        };
         nixvim' = inputs.nixvim.legacyPackages.${system};
         nvim = nixvim'.makeNixvimWithModule {
           inherit pkgs;
@@ -28,14 +45,22 @@
           inherit pkgs;
           module = nodets-config;
         };
+        nvimdotnet = nixvim'.makeNixvimWithModule {
+          inherit pkgs;
+          module = dotnet-config;
+        };
+
       in {
         checks.default = nixvimLib.check.mkTestDerivationFromNvim {
           inherit nvim;
           name = "A nixvim configuration";
         };
 
-        packages.default = nvim;
-        packages.rust-config = nvimrust;
-        packages.nodets-config = nvimnodets;
+        packages = {
+          rust-config = nvimrust;
+          nodets-config = nvimnodets;
+          dotnet-config = nvimdotnet;
+          default = nvim;
+        };
       });
 }

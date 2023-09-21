@@ -5,7 +5,7 @@
     nvim-autopairs.enable = true;
     telescope.enable = true;
     ts-autotag.enable = true;
-    treesitter-rainbow.enable = true;
+    rainbow-delimiters.enable = true;
     treesitter.enable = true;
 
     nvim-tree = {
