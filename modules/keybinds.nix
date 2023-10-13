@@ -1,11 +1,20 @@
 {
-  maps.insert = {
-    "jk".action = "<ESC>";
-    "kj".action = "<ESC>";
-  };
-
-  maps.visual = {
-    ">".action = ">gv";
-    "<".action = "<gv";
-  };
+  keymaps = [
+    {
+      key = "jk";
+      action = "<ESC>";
+    }
+    {
+      key = "kj";
+      action = "<ESC>";
+    }
+    {
+      key = ">";
+      action = ">gv";
+    }
+    {
+      key = "<";
+      action = "<gv";
+    }
+  ];
 }

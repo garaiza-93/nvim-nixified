@@ -1,7 +1,7 @@
 {
   autoCmd = [
     {
-      description = "Format file on write with LSP";
+      desc = "Format file on write with LSP";
       event = "BufWritePre";
       callback = {
         __raw = ''
@@ -11,7 +11,7 @@
       };
     }
     {
-      description = "Hide status/tab/cmd in alpha";
+      desc = "Hide status/tab/cmd in alpha";
       event = "User";
       pattern = "AlphaReady";
       callback = {
@@ -25,7 +25,7 @@
       };
     }
     {
-      description = "Reenable status/tab/cmd after alpha";
+      desc = "Reenable status/tab/cmd after alpha";
       event = "User";
       pattern = "AlphaClosed";
       callback = {
