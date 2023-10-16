@@ -24,18 +24,13 @@ in {
     enable = true;
     extraOptions = {
       sources = helpers.mkRaw ''
-        { require("null-ls").builtins.formatting.eslint_d,
-          require("null-ls").builtins.formatting.prettier_d_slim,
-          require("null-ls").builtins.code_actions.eslint_d,
-          require("null-ls").builtins.diagnostics.eslint_d
+        { require("null-ls").builtins.formatting.eslint,
+          require("null-ls").builtins.formatting.prettier,
+          require("null-ls").builtins.code_actions.eslint,
+          require("null-ls").builtins.diagnostics.eslint
         }
       '';
     };
   };
-  extraPackages = with pkgs.nodePackages; [
-    prettier
-    prettier_d_slim
-    eslint
-    eslint_d
-  ];
+  extraPackages = with pkgs.nodePackages; [ prettier eslint ];
 }
