@@ -1,20 +1,14 @@
 {
   keymaps = [
     {
-      key = "jk";
-      action = "<ESC>";
-    }
-    {
-      key = "kj";
-      action = "<ESC>";
-    }
-    {
       key = ">";
       action = ">gv";
+      mode = [ "v" ];
     }
     {
       key = "<";
       action = "<gv";
+      mode = [ "v" ];
     }
   ];
 }

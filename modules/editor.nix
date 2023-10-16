@@ -2,6 +2,8 @@
 
 {
   plugins = {
+    better-escape.enable = true;
+    better-escape.timeout = 10;
     nvim-autopairs.enable = true;
     telescope.enable = true;
     ts-autotag.enable = true;
