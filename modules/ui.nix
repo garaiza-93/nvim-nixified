@@ -31,4 +31,6 @@
 
   plugins.trouble.enable = true;
   plugins.trouble.icons = true;
+
+  plugins.treesitter-context.enable = true;
 }
