@@ -32,7 +32,7 @@
         tabe = "T";
       };
       diagnostic.keys = {
-        execAction = "<CR>";
+        execAction = "e";
         quit = "q";
         quitInShow = "q<ESC>";
         toggleOrJump = "<CR>";
