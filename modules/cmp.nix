@@ -21,7 +21,7 @@
 
     cmp.setup({
       completion = {
-        completeopt = "menu,menuone,noinsert",
+        completeopt = "menu,menuone,noinsert,noselect",
       },
       snippet = {
         expand = function(args)
@@ -42,7 +42,7 @@
             cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- they way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
+          elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
