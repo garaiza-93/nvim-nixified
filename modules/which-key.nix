@@ -51,10 +51,10 @@
       s = {
         name = 'Splits',
         e = { '<C-w>=', 'Equalize' },
-        h = { '<C-w><', 'Resize Left' },
-        j = { '<C-w>-', 'Resize Down' },
-        k = { '<C-w>+', 'Resize Up' },
-        l = { '<C-w>>', 'Resize Right' }
+        h = { '5<C-w><', 'Resize Left' },
+        j = { '5<C-w>-', 'Resize Down' },
+        k = { '5<C-w>+', 'Resize Up' },
+        l = { '5<C-w>>', 'Resize Right' }
       },
       t = {
         name = 'Tabs',
