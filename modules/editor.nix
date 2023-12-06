@@ -3,7 +3,7 @@
 {
   plugins = {
     better-escape.enable = true;
-    better-escape.timeout = 10;
+    better-escape.timeout = 100;
     nvim-autopairs.enable = true;
     telescope.enable = true;
     ts-autotag.enable = true;
@@ -19,11 +19,11 @@
 
     indent-blankline = {
       enable = true;
-      char = "▏";
-      showCurrentContext = true;
-      showCurrentContextStart = true;
-      buftypeExclude = [ "terminal" ];
-      filetypeExclude = [ "help" "git" "markdown" "snippets" "text" "alpha" ];
+      indent.char = "▏";
+      scope.enabled = true;
+      scope.showStart = true;
+      exclude.buftypes = [ "terminal" ];
+      exclude.filetypes = [ "help" "git" "markdown" "snippets" "text" "alpha" ];
     };
   };
   extraPlugins = [ pkgs.vimPlugins.nvim-surround ];
