@@ -8,6 +8,7 @@
     telescope.enable = true;
     ts-autotag.enable = true;
     rainbow-delimiters.enable = true;
+    nvim-ufo.enable = true;
     treesitter.enable = true;
 
     nvim-tree = {
@@ -15,6 +16,10 @@
       updateFocusedFile.enable = true;
       updateFocusedFile.updateRoot = true;
       preferStartupRoot = true;
+      view.width = {
+        min = 30;
+        max = 50;
+      };
     };
 
     indent-blankline = {
@@ -26,6 +31,7 @@
       exclude.filetypes = [ "help" "git" "markdown" "snippets" "text" "alpha" ];
     };
   };
+
   extraPlugins = [ pkgs.vimPlugins.nvim-surround ];
   extraConfigLua = ''require("nvim-surround").setup()'';
 }
