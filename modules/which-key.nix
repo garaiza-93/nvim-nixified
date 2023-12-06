@@ -21,7 +21,7 @@
       c = {
         name = 'Code',
         I = { '<cmd>Lspsaga hover_doc<cr>', 'Info' },
-        S = { '<cmd>Telescope lsp_document_symbols<cr>', 'Symbols' },
+        O = { '<cmd>Lspsaga outline<cr>', 'Outline' },
         a = { '<cmd>Lspsaga code_action<cr>', 'Actions' },
         c = { '<cmd>lua vim.lsp.buf.completion()<cr>', 'Completions' },
         d = {
