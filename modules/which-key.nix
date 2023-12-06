@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   plugins.which-key.enable = true;
   extraConfigLua = ''
     local Terminal = require('toggleterm.terminal').Terminal
@@ -20,16 +20,23 @@
       },
       c = {
         name = 'Code',
-        I = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Info' },
+        I = { '<cmd>Lspsaga hover_doc<cr>', 'Info' },
         S = { '<cmd>Telescope lsp_document_symbols<cr>', 'Symbols' },
-        a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Actions' },
+        a = { '<cmd>Lspsaga code_action<cr>', 'Actions' },
         c = { '<cmd>lua vim.lsp.buf.completion()<cr>', 'Completions' },
-        d = { '<cmd>TroubleToggle<cr>', 'Diagnostics' },
+        d = {
+          name = 'Diagnostics',
+          d = { '<cmd>Lspsaga show_cursor_diagnostics<cr>', 'At Cursor' },
+          l = { '<cmd>Lspsaga show_line_diagnostics<cr>', 'Line' },
+          b = { '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Buffer' },
+          w = { '<cmd>Lspsaga show_workspace_diagnostics<cr>', 'Workspace' }
+        },
         f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
-        i = { '<cmd>Telescope lsp_incoming_calls<cr>', 'Incoming Calls' },
+        i = { '<cmd>Lspsaga incoming_calls<cr>', 'Incoming Calls' },
         l = { '<cmd>set rnu!<cr>', 'Toggle Relative Line Numbers' },
-        o = { '<cmd>Telescope lsp_outgoing_calls<cr>', 'Outgoing Calls' },
-        r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Refactor' },
+        o = { '<cmd>Lspsaga outgoing_calls<cr>', 'Outgoing Calls' },
+        r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
+        R = { '<cmd>Lspsaga project_rename<cr>', 'Rename Across Project' },
         s = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature' }
       },
       e = { '<cmd>NvimTreeToggle<cr>', 'File Explorer' },

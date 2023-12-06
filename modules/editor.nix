@@ -8,8 +8,55 @@
     telescope.enable = true;
     ts-autotag.enable = true;
     rainbow-delimiters.enable = true;
-    nvim-ufo.enable = true;
     treesitter.enable = true;
+
+    lspsaga = {
+      enable = true;
+      lightbulb.virtualText = false;
+      callhierarchy.keys = {
+        close = "c";
+        edit = "<CR>";
+        quit = "q";
+        shuttle = "[";
+        split = "ss";
+        vsplit = "sv";
+        tabe = "T";
+        toggleOrReq = "t";
+      };
+      definition.keys = {
+        close = "c";
+        edit = "<CR>";
+        quit = "q";
+        split = "ss";
+        vsplit = "sv";
+        tabe = "T";
+      };
+      diagnostic.keys = {
+        execAction = "<CR>";
+        quit = "q";
+        quitInShow = "q<ESC>";
+        toggleOrJump = "<CR>";
+      };
+      finder.keys = {
+        close = "c";
+        quit = "q";
+        shuttle = "[";
+        split = "ss";
+        tabnew = "T";
+        toggleOrOpen = "<CR>";
+        vsplit = "sv";
+      };
+      outline.keys = {
+        jump = "<CR>";
+        quit = "q";
+        toggleOrJump = "o";
+      };
+      rename.keys = {
+        exec = "<CR>";
+        quit = "q";
+        select = "s";
+      };
+    };
 
     nvim-tree = {
       enable = true;

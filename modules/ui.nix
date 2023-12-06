@@ -31,7 +31,4 @@
 
   plugins.trouble.enable = true;
   plugins.trouble.icons = true;
-
-  plugins.treesitter-context.enable = true;
-  plugins.treesitter-context.maxLines = 1;
 }
