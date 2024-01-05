@@ -9,6 +9,7 @@
     ts-autotag.enable = true;
     rainbow-delimiters.enable = true;
     treesitter.enable = true;
+    trouble.enable = true;
 
     lspsaga = {
       enable = true;
@@ -79,6 +80,6 @@
     };
   };
 
-  extraPlugins = [ pkgs.vimPlugins.nvim-surround ];
+  extraPlugins = with pkgs.vimPlugins; [ nvim-surround rustaceanvim ];
   extraConfigLua = ''require("nvim-surround").setup()'';
 }

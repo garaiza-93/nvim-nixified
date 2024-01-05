@@ -29,6 +29,7 @@
           d = { '<cmd>TroubleToggle document_diagnostics<cr>', 'Document' },
           w = { '<cmd>TroubleToggle workspace_diagnostics<cr>', 'Workspace' }
         },
+        e = { '<cmd>RustLsp expandMacro<cr>', 'Expand Macro'},
         f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
         i = { '<cmd>Lspsaga incoming_calls<cr>', 'Incoming Calls' },
         l = { '<cmd>set rnu!<cr>', 'Toggle Relative Line Numbers' },
@@ -38,6 +39,7 @@
         s = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature' }
       },
       e = { '<cmd>NvimTreeToggle<cr>', 'File Explorer' },
+      E = { '<cmd>RustLsp explainError<cr>', 'Explain Error (Rust)'},
       f = {
         name = 'Find',
         f = { '<cmd>Telescope find_files<cr>', 'By Filename' },
@@ -52,6 +54,12 @@
         i = { '<cmd>Telescope lsp_implementations<cr>', 'Implementation' },
         r = { '<cmd>Telescope lsp_references<cr>', 'References' },
         t = { '<cmd>Telescope lsp_type_defintions<cr>', 'Type Defintion' }
+      },
+      r = {
+        name = 'Run',
+        d = { '<cmd>RustLsp debuggables<cr>', 'Debuggables' },
+        r = { '<cmd>RustLsp runnables<cr>', 'Runnables' },
+        r = { '<cmd>RustLsp runnables<cr>', 'Runnables' },
       },
       s = {
         name = 'Splits',
