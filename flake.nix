@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:garaiza-93/nixvim/add-bandit";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
 
@@ -19,6 +19,7 @@
       rust-config = import ./configs/rust-config.nix;
       nodets-config = import ./configs/nodets-config.nix;
       dotnet-config = import ./configs/dotnet-config.nix;
+      python-config = import ./configs/python-config.nix;
 
       overlay = final: prev: {
         nvim-lspconfig =
@@ -49,6 +50,10 @@
           inherit pkgs;
           module = dotnet-config;
         };
+        nvimpython = nixvim'.makeNixvimWithModule {
+          inherit pkgs;
+          module = python-config;
+        };
 
       in {
         checks.default = nixvimLib.check.mkTestDerivationFromNvim {
@@ -60,6 +65,7 @@
           rust-config = nvimrust;
           nodets-config = nvimnodets;
           dotnet-config = nvimdotnet;
+          python-config = nvimpython;
           default = nvim;
         };
       });
