@@ -1,5 +1,5 @@
 {
-  plugins.lsp.servers.tsserver.enable = true;
+  plugins.typescript-tools.enable = true;
 
   plugins.none-ls = {
     enable = true;
