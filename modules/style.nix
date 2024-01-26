@@ -64,29 +64,44 @@
         type = "group";
         val = [
           {
-            command = "<cmd>ene<cr>";
-            desc = "  > New file";
-            shortcut = "e";
+            on_press.__raw = "function() vim.cmd(ene) end";
+            opts.shortcut = "e";
+            opts.keymap.__raw =
+              ''{"n", "r", "function() vim.cmd('ene') end", {}}'';
+            type = "button";
+            val = "  > New file";
           }
           {
-            command = "<cmd>Telescope find_files<cr>";
-            desc = "󰭎  > Find file";
-            shortcut = "f";
+            on_press.__raw = "function() vim.cmd('Telescope find_files') end";
+            opts.shortcut = "f";
+            opts.keymap.__raw = ''
+              {"n", "r", "function() vim.cmd('Telescope find_files') end", {}}'';
+            type = "button";
+            val = "󰭎  > Find file";
           }
           {
-            command = "<cmd>Telescope live_grep<cr>";
-            desc = "󰭎  > Find Text (grep)";
-            shortcut = "g";
+            on_press.__raw = "function() vim.cmd('Telescope live_grep') end";
+            opts.shortcut = "g";
+            opts.keymap.__raw = ''
+              {"n", "r", "function() vim.cmd('Telescope live_grep') end", {}}'';
+            type = "button";
+            val = "󰭎  > Find Text (grep)";
           }
           {
-            command = "<cmd>Telescope oldfiles<cr>";
-            desc = "󰭎  > Recent";
-            shortcut = "r";
+            on_press.__raw = "function() vim.cmd('Telescope oldfiles') end";
+            opts.shortcut = "r";
+            opts.keymap.__raw = ''
+              {"n", "r", "function() vim.cmd('Telescope oldfiles') end", {}}'';
+            type = "button";
+            val = "󰭎  > Recent";
           }
           {
-            command = "<cmd>qa<cr>";
-            desc = "󰩈  > Quit NVIM";
-            shortcut = "q";
+            on_press.__raw = "function() vim.cmd('qa') end";
+            opts.shortcut = "q";
+            opts.keymap.__raw =
+              ''{"n", "r", "function() vim.cmd('qa') end", {}}'';
+            type = "button";
+            val = "󰩈  > Quit NVIM";
           }
         ];
       }
