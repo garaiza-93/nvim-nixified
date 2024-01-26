@@ -64,42 +64,42 @@
         type = "group";
         val = [
           {
-            on_press.__raw = "function() vim.cmd(ene) end";
+            on_press.__raw = "vim.cmd('ene')";
             opts.shortcut = "e";
             opts.keymap.__raw =
-              ''{"n", "r", "function() vim.cmd('ene') end", {}}'';
+              ''{"n", "e", "vim.cmd('ene')", {noremap=true}}'';
             type = "button";
             val = "  > New file";
           }
           {
-            on_press.__raw = "function() vim.cmd('Telescope find_files') end";
+            on_press.__raw = "require('telescope.builtin').find_files";
             opts.shortcut = "f";
             opts.keymap.__raw = ''
-              {"n", "r", "function() vim.cmd('Telescope find_files') end", {}}'';
+              {"n", "f", "require('telescope.builtin').find_files", {noremap=true}}'';
             type = "button";
             val = "󰭎  > Find file";
           }
           {
-            on_press.__raw = "function() vim.cmd('Telescope live_grep') end";
+            on_press.__raw = "require('telescope.builtin').live_grep";
             opts.shortcut = "g";
             opts.keymap.__raw = ''
-              {"n", "r", "function() vim.cmd('Telescope live_grep') end", {}}'';
+              {"n", "g", "require('telescope.builtin').live_grep", {noremap=true}}'';
             type = "button";
             val = "󰭎  > Find Text (grep)";
           }
           {
-            on_press.__raw = "function() vim.cmd('Telescope oldfiles') end";
+            on_press.__raw = "require('telescope.builtin').oldfiles";
             opts.shortcut = "r";
             opts.keymap.__raw = ''
-              {"n", "r", "function() vim.cmd('Telescope oldfiles') end", {}}'';
+              {"n", "r", "require('telescope.builtin').oldfiles", {noremap=true}}'';
             type = "button";
             val = "󰭎  > Recent";
           }
           {
-            on_press.__raw = "function() vim.cmd('qa') end";
+            on_press__raw = "vim.cmd('qa')";
             opts.shortcut = "q";
             opts.keymap.__raw =
-              ''{"n", "r", "function() vim.cmd('qa') end", {}}'';
+              ''{"n", "q", "vim.cmd('qa')", {noremap=true}}'';
             type = "button";
             val = "󰩈  > Quit NVIM";
           }
