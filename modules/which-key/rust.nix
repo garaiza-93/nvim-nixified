@@ -20,9 +20,9 @@
       },
       c = {
         name = 'Code',
-        I = { '<cmd>Lspsaga hover_doc<cr>', 'Info' },
-        O = { '<cmd>Lspsaga outline<cr>', 'Outline' },
-        a = { '<cmd>Lspsaga code_action<cr>', 'Actions' },
+        I = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Info' },
+        S = { '<cmd>Telescope lsp_document_symbols<cr>', 'Symbols' },
+        a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Actions' },
         c = { '<cmd>lua vim.lsp.buf.completion()<cr>', 'Completions' },
         d = {
           name = 'Diagnostics',
@@ -31,11 +31,10 @@
         },
         e = { '<cmd>RustLsp expandMacro<cr>', 'Expand Macro'},
         f = { '<cmd>lua vim.lsp.buf.format()<cr>', 'Format' },
-        i = { '<cmd>Lspsaga incoming_calls<cr>', 'Incoming Calls' },
+        i = { '<cmd>Telescope lsp_incoming_calls<cr>', 'Incoming Calls' },
         l = { '<cmd>set rnu!<cr>', 'Toggle Relative Line Numbers' },
-        o = { '<cmd>Lspsaga outgoing_calls<cr>', 'Outgoing Calls' },
-        r = { '<cmd>Lspsaga rename<cr>', 'Rename' },
-        R = { '<cmd>Lspsaga project_rename<cr>', 'Rename Across Project' },
+        o = { '<cmd>Telescope lsp_outgoing_calls<cr>', 'Outgoing Calls' },
+        r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
         s = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature' }
       },
       e = { '<cmd>NvimTreeToggle<cr>', 'File Explorer' },
