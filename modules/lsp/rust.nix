@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  plugins.lsp.servers.taplo.enable = true;
   plugins.cmp-clippy.enable = true;
-  extraPackages = with pkgs; [ clippy rust-analyzer ];
+
+  plugins.rustaceanvim.enable = true;
+
+  extraPackages = with pkgs; [ clippy ];
 }

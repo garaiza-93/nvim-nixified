@@ -5,6 +5,7 @@
   plugins.cmp-buffer.enable = true;
   plugins.cmp-path.enable = true;
   plugins.cmp-cmdline.enable = true;
+  plugins.cmp-nvim-lsp-signature-help.enable = true;
   plugins.nvim-cmp.enable = true;
   plugins.nvim-cmp.snippet.expand = "luasnip";
   extraPlugins = [ pkgs.vimPlugins.friendly-snippets ];
@@ -65,6 +66,7 @@
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "nvim_lsp_signature_help" },
       }),
       experimental = {
         ghost_text = {

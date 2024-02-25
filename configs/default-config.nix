@@ -8,8 +8,7 @@
     ../modules/options.nix
     ../modules/style.nix
     ../modules/ui.nix
-    ../modules/which-key.nix
-
+    ../modules/which-key/base.nix
     ../modules/lsp/base.nix
   ];
   extraPackages = with pkgs; [ lazygit nixfmt ripgrep fd ];
