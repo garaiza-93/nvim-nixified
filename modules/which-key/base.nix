@@ -30,6 +30,23 @@
         r = [ "<cmd>lua vim.lsp.buf.rename()<cr>" "Rename" ];
         s = [ "<cmd>lua vim.lsp.buf.signature_help()<cr>" "Signature" ];
       };
+      d = {
+        name = "Debug";
+        "<S-CR>" = [ "<Cmd>lua require'dap'.step_out()<CR>" "Step Out" ];
+        "<CR>" = [ "<Cmd>lua require'dap'.step_into()<CR>" "Step Into" ];
+        "<Space>" = [ "<Cmd>lua require'dap'.step_over()<CR>" "Step Over" ];
+        R = [ "<Cmd>lua require'dap'.run_last()<CR>" "Run Last" ];
+        b = [
+          "<Cmd>lua require'dap'.toggle_breakpoint()<CR>"
+          "Toggle Breakpoint"
+        ];
+        B = [
+          "<Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint Condition: '))<CR>"
+          "Conditional breakpoint"
+        ];
+        c = [ "<Cmd>lua require'dap'.continue()<CR>" "Continue" ];
+        pl = [ "<Cmd>lua require'dap'.repl.open()<CR>" "Open REPL" ];
+      };
       e = [ "<cmd>NvimTreeToggle<cr>" "File Explorer" ];
       f = {
         name = "Find";

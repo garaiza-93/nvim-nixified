@@ -1,4 +1,4 @@
 { pkgs, ... }: {
-  extraPlugins = [ pkgs.vimPlugins.nvim-dap ];
+  imports = [ ./common.nix ];
   extraPackages = with pkgs; [ vscode-extensions.vadimcn.vscode-lldb ];
 }

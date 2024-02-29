@@ -10,6 +10,7 @@
     ../modules/ui.nix
     ../modules/which-key/base.nix
     ../modules/lsp/base.nix
+    ../modules/dap/common.nix
   ];
   extraPackages = with pkgs; [ lazygit nixfmt ripgrep fd ];
 }
