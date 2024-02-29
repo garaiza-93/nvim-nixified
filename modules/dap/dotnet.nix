@@ -1,10 +1,11 @@
 { pkgs, ... }: {
-  imports = [ ./common.nix ];
   extraPackages = with pkgs; [ netcoredbg ];
   extraConfigLua = ''
     require('dap.ext.vscode').load_launchjs(nil, { coreclr = {'cs'} })
   '';
   plugins.dap = {
+    enable = true;
+    extensions.dap-ui.enable = true;
     adapters = {
       executables = {
         coreclr = {
