@@ -1,14 +1,15 @@
 { pkgs, ... }: {
   extraPackages = with pkgs; [ netcoredbg ];
   extraConfigLua = ''
+    local dap, dapui = require("dap"), require("dapui")
     require('dap.ext.vscode').load_launchjs(nil, { coreclr = {'cs'} })
-    require("dap").listeners.after.event_initialized["dapui_config"] = function()
+    dap.listeners.after.event_initialized["dapui_config"] = function()
       dapui.open()
     end
-    require("dap").listeners.before.event_terminated["dapui_config"] = function()
+    dap.listeners.before.event_terminated["dapui_config"] = function()
       dapui.close()
     end
-    require("dap").listeners.before.event_exited["dapui_config"] = function()
+    dap.listeners.before.event_exited["dapui_config"] = function()
       dapui.close()
     end
   '';
