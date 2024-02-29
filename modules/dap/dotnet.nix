@@ -4,7 +4,7 @@
     adapters = {
       executables = {
         coreclr = {
-          command = "${pkgs.netcoredbg}/netcoredbg";
+          command = "${pkgs.netcoredbg}/bin/netcoredbg";
           args = [ "--interpreter=vscode" ];
         };
       };
