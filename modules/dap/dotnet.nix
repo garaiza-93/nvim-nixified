@@ -8,14 +8,13 @@
           args = [ "--interpreter=vscode" ];
         };
       };
-
-      configurations = {
-        cs = [{
-          type = "coreclr";
-          name = "launch  netcoredbg";
-          request = "launch";
-        }];
-      };
+    };
+    configurations = {
+      cs = [{
+        type = "coreclr";
+        name = "launch  netcoredbg";
+        request = "launch";
+      }];
     };
   };
   extraPackages = with pkgs; [ netcoredbg ];
