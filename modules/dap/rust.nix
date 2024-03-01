@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  plugins.dap.enable = true;
-  plugins.dap.extensions.dap-ui.enable = true;
+  imports = [ ./common.nix ];
   extraPackages = with pkgs; [ vscode-extensions.vadimcn.vscode-lldb ];
 }

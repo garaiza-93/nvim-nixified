@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  imports = [ ./common.nix ];
   extraPackages = with pkgs; [ netcoredbg ];
   extraConfigLua = ''
     local dap, dapui = require("dap"), require("dapui")
@@ -14,8 +15,6 @@
     end
   '';
   plugins.dap = {
-    enable = true;
-    extensions.dap-ui.enable = true;
     adapters = {
       executables = {
         coreclr = {
