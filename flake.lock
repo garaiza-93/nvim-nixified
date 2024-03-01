@@ -226,7 +226,24 @@
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "nvim-lspconfig": "nvim-lspconfig"
+        "nvim-lspconfig": "nvim-lspconfig",
+        "rustaceanvim": "rustaceanvim"
+      }
+    },
+    "rustaceanvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709308484,
+        "narHash": "sha256-JyvaDySQp8qhC8u0sswjfPq5HlnK0CN9O7NbqacBgEI=",
+        "owner": "mrcjkb",
+        "repo": "rustaceanvim",
+        "rev": "001dd498894e4c554e92af507fb27739146c177d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mrcjkb",
+        "repo": "rustaceanvim",
+        "type": "github"
       }
     },
     "systems": {
