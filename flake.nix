@@ -11,6 +11,11 @@
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
+
+    rustaceanvim = {
+      url = "github:mrcjkb/rustaceanvim";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, nixvim, flake-utils, ... }@inputs:
@@ -24,6 +29,8 @@
       overlay = final: prev: {
         nvim-lspconfig =
           prev.nvim-lspconfig.override { src = inputs.nvim-lspconfig.url; };
+        rustaceanvim =
+          prev.rustaceanvim.override { src = inputs.rustaceanvim.url; };
       };
 
     in inputs.flake-utils.lib.eachDefaultSystem (system:
