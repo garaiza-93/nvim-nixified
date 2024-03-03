@@ -13,63 +13,40 @@
     };
   };
 
-  outputs = { nixpkgs, nixvim, flake-utils, ... }@inputs:
+  outputs = { nixpkgs, nixvim, flake-utils, rustaceanvim, ... }@inputs:
     let
-      default-config = import ./configs/default-config.nix;
-      rust-config = import ./configs/rust-config.nix;
-      nodets-config = import ./configs/nodets-config.nix;
-      dotnet-config = import ./configs/dotnet-config.nix;
-      python-config = import ./configs/python-config.nix;
-
-      configurations = [
+      configList = [
         {
-          package = "rust-config";
-          configuration = rust-config;
+          name = "rust-config";
+          extraSpecialArgs = { inherit (inputs) rustaceanvim; };
         }
-        {
-          package = "nodets-config";
-          configuration = nodets-config;
-        }
-        {
-          package = "dotnet-config";
-          configuration = dotnet-config;
-        }
-        {
-          package = "python-config";
-          configuration = python-config;
-        }
+        { name = "nodets-config"; }
+        { name = "dotnet-config"; }
+        { name = "python-config"; }
       ];
-
-      overlay = final: prev: {
-        rustaceanvim =
-          prev.rustaceanvim.override { src = inputs.rustaceanvim.url; };
-      };
-
     in inputs.flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import inputs.nixpkgs {
-          inherit system;
-          overlays = [ overlay ];
-        };
-
-        default = makeNixvim default-config;
+        pkgs = import inputs.nixpkgs { inherit system; };
 
         nixvimLib = inputs.nixvim.lib.${system};
 
         nixvim' = inputs.nixvim.legacyPackages.${system};
-        makeNixvim = module:
-          nixvim'.makeNixvimWithModule { inherit pkgs module; };
+        makeNixvim = module: extraSpecialArgs:
+          nixvim'.makeNixvimWithModule {
+            inherit pkgs module;
+            extraSpecialArgs = extraSpecialArgs // { };
+          };
 
         packages = {
-          inherit default;
+          default = makeNixvim (import ./configs/default-config.nix) { };
         } // builtins.listToAttrs (map (config: {
-          inherit (config) package configuration;
-          name = config.package;
-          value = makeNixvim { module = config.configuration; };
-        }) configurations);
+          name = config.name;
+          value = makeNixvim (import ./configs/${config.name}.nix)
+            config.extraSpecialArgs;
+        }) configList);
       in {
         checks.default = nixvimLib.check.mkTestDerivationFromNvim {
-          nvim = default;
+          nvim = packages.default;
           name = "A nixvim configuration";
         };
 
