@@ -177,22 +177,6 @@
         "type": "github"
       }
     },
-    "nvim-lspconfig": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705757419,
-        "narHash": "sha256-StYsN9C2rV471JkncUR1PFeXs0S15ZGTF1DigSbwOHI=",
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "rev": "8917d2c830e04bf944a699b8c41f097621283828",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -226,7 +210,6 @@
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "nvim-lspconfig": "nvim-lspconfig",
         "rustaceanvim": "rustaceanvim"
       }
     },
