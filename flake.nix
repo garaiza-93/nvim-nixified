@@ -20,9 +20,18 @@
           name = "rust-config";
           extraSpecialArgs = { inherit (inputs) rustaceanvim; };
         }
-        { name = "nodets-config"; }
-        { name = "dotnet-config"; }
-        { name = "python-config"; }
+        {
+          name = "nodets-config";
+          extraSpecialArgs = { };
+        }
+        {
+          name = "dotnet-config";
+          extraSpecialArgs = { };
+        }
+        {
+          name = "python-config";
+          extraSpecialArgs = { };
+        }
       ];
     in inputs.flake-utils.lib.eachDefaultSystem (system:
       let
@@ -33,8 +42,7 @@
         nixvim' = inputs.nixvim.legacyPackages.${system};
         makeNixvim = module: extraSpecialArgs:
           nixvim'.makeNixvimWithModule {
-            inherit pkgs module;
-            extraSpecialArgs = extraSpecialArgs // { };
+            inherit pkgs module extraSpecialArgs;
           };
 
         packages = {
