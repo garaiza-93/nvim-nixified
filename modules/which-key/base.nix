@@ -24,6 +24,10 @@
           w = [ "<cmd>TroubleToggle workspace_diagnostics<cr>" "Workspace" ];
         };
         f = [ "<cmd>lua vim.lsp.buf.format()<cr>" "Format" ];
+        h = [
+          "<cmd>lua vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled()) <cr>"
+          "Toggle Inlay Hints"
+        ];
         i = [ "<cmd>Telescope lsp_incoming_calls<cr>" "Incoming Calls" ];
         l = [ "<cmd>set rnu!<cr>" "Toggle Relative Line Numbers" ];
         o = [ "<cmd>Telescope lsp_outgoing_calls<cr>" "Outgoing Calls" ];
