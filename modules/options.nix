@@ -1,4 +1,5 @@
-{
+{ pkgs, ... }: {
+  config.package = pkgs.neovim-nightly;
   config = {
     clipboard.providers.xclip.enable = true;
     clipboard.register = "unnamedplus";

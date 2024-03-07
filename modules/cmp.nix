@@ -6,8 +6,10 @@
   plugins.cmp-path.enable = true;
   plugins.cmp-cmdline.enable = true;
   plugins.cmp-nvim-lsp-signature-help.enable = true;
-  plugins.nvim-cmp.enable = true;
-  plugins.nvim-cmp.snippet.expand = "luasnip";
+  plugins.cmp.enable = true;
+  plugins.cmp.settings.snippet.expand =
+    "function(args) require('luasnip').lsp_expand(args.body) end";
+
   extraPlugins = [ pkgs.vimPlugins.friendly-snippets ];
   extraConfigLua = ''
     local has_words_before = function()

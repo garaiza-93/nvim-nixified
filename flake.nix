@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
@@ -13,8 +14,10 @@
     };
   };
 
-  outputs = { nixpkgs, nixvim, flake-utils, rustaceanvim, ... }@inputs:
+  outputs = { nixpkgs, nixvim, flake-utils, rustaceanvim, neovim-nightly-overlay
+    , ... }@inputs:
     let
+      overlays = [ inputs.neovim-nightly-overlay.overlay ];
       configList = [
         {
           name = "rust-config";
@@ -35,7 +38,7 @@
       ];
     in inputs.flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import inputs.nixpkgs { inherit system; };
+        pkgs = import inputs.nixpkgs { inherit system overlays; };
 
         nixvimLib = inputs.nixvim.lib.${system};
 
