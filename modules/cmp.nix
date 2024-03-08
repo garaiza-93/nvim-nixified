@@ -1,11 +1,13 @@
 { pkgs, ... }: {
   plugins.luasnip.enable = true;
+  plugins.crates-nvim.enable = true;
   plugins.cmp_luasnip.enable = true;
   plugins.cmp-nvim-lsp.enable = true;
   plugins.cmp-buffer.enable = true;
   plugins.cmp-path.enable = true;
   plugins.cmp-cmdline.enable = true;
   plugins.cmp-nvim-lsp-signature-help.enable = true;
+  plugins.cmp-nvim-lsp-document-symbol.enable = true;
   plugins.cmp.enable = true;
   plugins.cmp.settings.snippet.expand =
     "function(args) require('luasnip').lsp_expand(args.body) end";
@@ -88,7 +90,11 @@
     -- Sources for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = {}
+      sources = cmp.config.sources({
+          { name = 'nvim_lsp_document_symbol' }
+        }, {
+          { name = 'buffer' }
+        })
     })
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
