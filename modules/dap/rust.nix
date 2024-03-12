@@ -2,10 +2,12 @@
   imports = [ ./common.nix ];
   extraPackages = with pkgs; [ vscode-extensions.vadimcn.vscode-lldb ];
   plugins.dap = {
-    adapters.executables = {
+    adapters.servers = {
       codelldb = {
-        command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/bin/codelldb";
-        args = [ "--interpreter=vscode" ];
+        port = "\${port}";
+        executable.command =
+          "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+        executable.args = [ "--port" "\${port}" ];
       };
     };
   };
