@@ -14,7 +14,11 @@
   extraConfigLua = ''
     require("neotest").setup({
       adapters = {
-        require("neotest-dotnet")
+        require("neotest-dotnet")({
+          dap = {
+            adapter_name = "coreclr"
+          }
+        })
       }
     })
   '';
