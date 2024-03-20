@@ -17,7 +17,7 @@
         I = [ "<cmd>lua vim.lsp.buf.hover()<cr>" "Info" ];
         S = [ "<cmd>Telescope lsp_document_symbols<cr>" "Symbols" ];
         a = [ "<cmd>lua vim.lsp.buf.code_action()<cr>" "Actions" ];
-        c = [ "<cmd>lua vim.lsp.buf.completion()<cr>" "Completions" ];
+        c = [ "<cmd>Telescope lsp_incoming_calls<cr>" "Incoming Calls" ];
         d = {
           name = "Diagnostics";
           d = [ "<cmd>TroubleToggle document_diagnostics<cr>" "Document" ];
@@ -28,7 +28,7 @@
           "<cmd>lua vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled()) <cr>"
           "Toggle Inlay Hints"
         ];
-        i = [ "<cmd>Telescope lsp_incoming_calls<cr>" "Incoming Calls" ];
+        i = [ "<cmd>lua vim.lsp.buf.implementation()<cr>" "Implementation" ];
         l = [ "<cmd>set rnu!<cr>" "Toggle Relative Line Numbers" ];
         o = [ "<cmd>Telescope lsp_outgoing_calls<cr>" "Outgoing Calls" ];
         r = [ "<cmd>lua vim.lsp.buf.rename()<cr>" "Rename" ];
