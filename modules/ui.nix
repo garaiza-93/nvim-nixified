@@ -30,5 +30,5 @@
   };
 
   plugins.trouble.enable = true;
-  plugins.trouble.icons = true;
+  plugins.trouble.settings.icons = true;
 }
