@@ -17,7 +17,7 @@
   outputs = { nixpkgs, nixvim, flake-utils, rustaceanvim, neovim-nightly-overlay
     , ... }@inputs:
     let
-      overlays = [ inputs.neovim-nightly-overlay.overlay ];
+      overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
       configList = [
         {
           name = "rust-config";
