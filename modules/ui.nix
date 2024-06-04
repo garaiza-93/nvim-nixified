@@ -1,8 +1,8 @@
 {
-  plugins.toggleterm = {
-    enable = true;
+  plugins.toggleterm.enable = true;
+  plugins.toggleterm.settings = {
     direction = "float";
-    floatOpts.border = "curved";
+    float_opts.border = "curved";
   };
 
   plugins.bufferline = {

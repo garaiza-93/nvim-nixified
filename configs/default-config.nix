@@ -12,5 +12,5 @@
     ../modules/lsp/base.nix
     ../modules/dap/common.nix
   ];
-  extraPackages = with pkgs; [ lazygit nixfmt ripgrep fd ];
+  extraPackages = with pkgs; [ lazygit nixfmt-classic ripgrep fd ];
 }

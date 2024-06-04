@@ -1,32 +1,32 @@
-{ pkgs, ... }: {
-  config.package = pkgs.neovim-nightly;
+{ pkgs, neovim-nightly-overlay, ... }: {
+  config.package = neovim-nightly-overlay.packages.${pkgs.system}.default;
   config = {
     clipboard.providers.xclip.enable = true;
     clipboard.register = "unnamedplus";
   };
-  config.options = {
-    mousemoveevent = true;
-    updatetime = 50;
+  config.opts = {
+    expandtab = true;
     foldcolumn = "1";
+    foldenable = true;
     foldlevel = 99;
     foldlevelstart = 99;
-    foldenable = true;
+    ignorecase = true;
+    incsearch = true;
+    mouse = "a";
+    mousemoveevent = true;
     number = true;
     relativenumber = true;
     scrolloff = 4;
-    signcolumn = "yes";
-    syntax = "ON";
-    termguicolors = true;
-    ignorecase = true;
-    smartcase = true;
-    incsearch = true;
-    expandtab = true;
-    tabstop = 2;
     shiftwidth = 2;
-    splitright = true;
+    signcolumn = "yes";
+    smartcase = true;
     splitbelow = true;
-    mouse = "a";
+    splitright = true;
+    syntax = "ON";
+    tabstop = 2;
+    termguicolors = true;
     timeoutlen = 300;
+    updatetime = 50;
   };
 
   config.globals = {

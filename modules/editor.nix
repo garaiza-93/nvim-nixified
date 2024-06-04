@@ -23,11 +23,11 @@
       };
     };
 
-    indent-blankline = {
-      enable = true;
+    indent-blankline.enable = true;
+    indent-blankline.settings = {
       indent.char = "▏";
       scope.enabled = true;
-      scope.showStart = true;
+      scope.show_start = true;
       exclude.buftypes = [ "terminal" ];
       exclude.filetypes = [ "help" "git" "markdown" "snippets" "text" "alpha" ];
     };

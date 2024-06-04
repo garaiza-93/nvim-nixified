@@ -17,7 +17,6 @@
   outputs = { nixpkgs, nixvim, flake-utils, rustaceanvim, neovim-nightly-overlay
     , ... }@inputs:
     let
-      overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
       configList = [
         {
           name = "rust-config";
@@ -38,14 +37,17 @@
       ];
     in inputs.flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import inputs.nixpkgs { inherit system overlays; };
+        pkgs = import inputs.nixpkgs { inherit system; };
 
         nixvimLib = inputs.nixvim.lib.${system};
 
         nixvim' = inputs.nixvim.legacyPackages.${system};
         makeNixvim = module: extraSpecialArgs:
           nixvim'.makeNixvimWithModule {
-            inherit pkgs module extraSpecialArgs;
+            inherit pkgs module;
+            extraSpecialArgs = pkgs.lib.recursiveUpdate extraSpecialArgs {
+              inherit (inputs) neovim-nightly-overlay;
+            };
           };
 
         packages = {
