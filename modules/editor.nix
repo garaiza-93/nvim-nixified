@@ -33,7 +33,7 @@
     };
   };
 
-  extraPlugins = with pkgs.vimPlugins; [ nvim-surround b64-nvim ];
+  extraPlugins = with pkgs.vimPlugins; [ nvim-surround b64-nvim vim-bufkill ];
   extraConfigLua = ''
     vim.diagnostic.config({virtual_text=false})
     require("nvim-surround").setup()'';

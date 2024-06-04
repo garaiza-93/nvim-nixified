@@ -4,8 +4,10 @@
     registrations."<leader>" = {
       b = {
         name = "Buffers";
-        D = [ "<cmd>%bd|e#<cr>" "Delete All But Current" ];
-        d = [ "<cmd>bd<cr>" "Delete Current" ];
+        c = [ "<cmd>BUN<cr>" "Close Current" ];
+        C = [ "<cmd>%BUN|e#<cr>" "Close All But Current" ];
+        D = [ "<cmd>BD<cr>" "Delete Current" ];
+        Dd = [ "<cmd>%bd|e#|bn|bd<cr>" "Delete All But Current" ];
         l = [ "<cmd>Telescope buffers<cr>" "List All" ];
         n = [ "<cmd>bn<cr>" "Next" ];
         p = [ "<cmd>bp<cr>" "Previous" ];
