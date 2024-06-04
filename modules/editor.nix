@@ -7,7 +7,6 @@
     nvim-autopairs.enable = true;
     telescope.enable = true;
     ts-autotag.enable = true;
-    rainbow-delimiters.enable = true;
     treesitter.enable = true;
     trouble.enable = true;
     nvim-ufo.enable = true;
