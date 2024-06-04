@@ -1,5 +1,10 @@
 {
   plugins.lsp.enable = true;
+  plugins.lsp.servers = {
+    nil-ls.enable = true;
+    jsonls.enable = true;
+    marksman.enable = true;
+  };
 
   plugins.lsp-format.enable = true;
   plugins.lsp-format.lspServersToEnable = [ "nil_ls" ];
