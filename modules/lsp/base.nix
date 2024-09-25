@@ -7,7 +7,7 @@
   };
 
   plugins.lsp-format.enable = true;
-  plugins.lsp-format.lspServersToEnable = [ "all" ];
+  plugins.lsp-format.lspServersToEnable = "all";
 
   plugins.none-ls.enable = true;
   plugins.none-ls.enableLspFormat = true;
