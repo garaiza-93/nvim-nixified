@@ -11,8 +11,6 @@ in {
     settings.style = "night";
   };
 
-  plugins.web-devicons.enable = true;
-
   plugins.alpha = {
     enable = true;
     layout = [

@@ -12,5 +12,7 @@
     ../modules/lsp/base.nix
     ../modules/dap/common.nix
   ];
+
+  plugins.web-devicons.enable = true;
   extraPackages = with pkgs; [ lazygit nixfmt-classic ripgrep fd ];
 }
