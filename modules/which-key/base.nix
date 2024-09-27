@@ -9,12 +9,12 @@
         __unkeyed_2 = [
           {
             desc = "Lazygit";
-            __unkeyed_1 = "l";
+            __unkeyed_1 = "<leader>Tl";
             __unkeyed_2 = "<cmd>lua Lazygit_term()<cr>";
           }
           {
             desc = "Toggle Terminal";
-            __unkeyed_1 = "t";
+            __unkeyed_1 = "<leader>Tt";
             __unkeyed_2 = "<cmd>ToggleTerm direction=horizontal<cr>";
           }
         ];
